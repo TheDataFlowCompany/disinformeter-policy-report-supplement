@@ -1,0 +1,7 @@
+predictor_label,Democracy importance,EU support,External political efficacy,Generalised social trust,Institutional trust,Internal political efficacy,Left-right self-placement,Life satisfaction,Political interest,Religiosity,Confidence detecting misinfo,Foreign-actor topic salience,Misinfo seen as political,Perceived misinfo creators,Perceived misinfo impact,Pro-regulation of misinfo,Responsibility for prevention,Frequency of seeing manipulated news,Non-electoral participation (count),Reactions to suspected misinformation (count),Voted in last national election,Belief others try to be fair,Belief others try to be helpful,News use — TV / radio,News use — aggregate,News use — messaging apps,News use — online news / apps,News use — print,News use — social media / podcasts
+ABAND,*,*,*,*,*,*,*,*,,*,*,*,*,*,*,,*,*,*,,*,*,*,*,*,*,,*,*
+FEAR,*,*,*,*,,*,*,*,*,*,*,*,*,*,*,*,*,*,,*,*,*,*,*,*,*,*,*,*
+GEN,*,*,*,,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,,*,*,*,*,*,*
+SUPF,*,*,*,*,*,*,*,*,,*,*,*,,*,*,*,*,*,*,*,*,*,*,*,*,*,,*,*
+SUPFCH,*,,*,*,*,*,*,*,*,*,*,*,,*,*,*,*,*,*,,*,*,*,*,*,*,*,*,*
+THREAT,,*,*,*,*,,*,*,*,*,*,*,*,*,*,*,*,*,*,,,*,*,*,*,*,*,*,*

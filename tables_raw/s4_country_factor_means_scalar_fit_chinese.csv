@@ -1,0 +1,2 @@
+fimi_variant,chisq,df,chisq_p,cfi,tli,rmsea,rmsea_ci_lo,rmsea_ci_hi,srmr,estimator,invariance
+chinese,20996.74888183968,2804,0,0.7733782522800523,0.7572948971458621,0.11589572653459364,0.11443685487983137,0.11735987146433828,0.13588221710059228,MLR (FIML),scalar (loadings + intercepts equal); latent means free in non-reference groups
