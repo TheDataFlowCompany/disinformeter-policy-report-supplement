@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -257,31 +277,12 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">DisInforMeter — D5.3 Supplement</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./07-overview.html"> 
-<span class="menu-text">How to read this</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./07i-reproducibility.html"> 
-<span class="menu-text">Reproducibility</span></a>
-  </li>  
-</ul>
-</div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
+        <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/TheDataFlowCompany/disinformeter-policy-report-supplement" title="Source repository" class="quarto-navigation-tool px-1" aria-label="Source repository"><i class="bi bi-github"></i></a>
     <a href="https://osf.io/" title="OSF reuse package (forthcoming)" class="quarto-navigation-tool px-1" aria-label="OSF reuse package (forthcoming)"><i class="bi bi-database-fill"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -2205,7 +2206,7 @@ Table&nbsp;4
 </figure>
 </div>
 </section><section id="reliability-and-ave" class="level1"><h1>Reliability and AVE</h1>
-<p>Reliability is generally strong for the core receptivity constructs. Median internal-consistency across S2–S5 is high for Betrayal/Abandonment ((= .893), (= .894)), Foreign-Power Admiration ((= .939), (= .941)), and Threat ((= .884), (= .886)); acceptable for Fear/Pragmatism ((= .833), (= .836)); and more modest for the intentionally heterogeneous General Anchor ((= .662), (= .708)). Values above ~.70 are conventionally acceptable for group-level research and above .80 indicate strong reliability <span class="citation" data-cites="Cronbach1951 McDonald1999">(<a href="#ref-Cronbach1951" role="doc-biblioref"><strong>Cronbach1951?</strong></a>; <a href="#ref-McDonald1999" role="doc-biblioref"><strong>McDonald1999?</strong></a>)</span>.</p>
+<p>Reliability is generally strong for the core receptivity constructs. Median internal-consistency across S2–S5 is high for Betrayal/Abandonment ((= .893), (= .894)), Foreign-Power Admiration ((= .939), (= .941)), and Threat ((= .884), (= .886)); acceptable for Fear/Pragmatism ((= .833), (= .836)); and more modest for the intentionally heterogeneous General Anchor ((= .662), (= .708)). Values above ~.70 are conventionally acceptable for group-level research and above .80 indicate strong reliability <span class="citation" data-cites="Cronbach1951 McDonald1999">(<a href="#ref-Cronbach1951" role="doc-biblioref">Cronbach, 1951</a>; <a href="#ref-McDonald1999" role="doc-biblioref">McDonald, 1999</a>)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-f06" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -2911,7 +2912,7 @@ Table&nbsp;5
 </figure>
 </div>
 </section><section id="measurement-comparability-invariance" class="level1"><h1>Measurement comparability (invariance)</h1>
-<p>Country-level comparability meets the conventional threshold for <strong>metric invariance</strong> (()CFI criterion), so relationships, ranks, and profiles can be compared across countries with confidence. Evidence for <strong>scalar invariance</strong> is more limited, so absolute latent-mean comparisons are interpreted more cautiously <span class="citation" data-cites="CheungRensvold2002 Chen2007">(<a href="#ref-CheungRensvold2002" role="doc-biblioref"><strong>CheungRensvold2002?</strong></a>; <a href="#ref-Chen2007" role="doc-biblioref"><strong>Chen2007?</strong></a>)</span>.</p>
+<p>Country-level comparability meets the conventional threshold for <strong>metric invariance</strong> (()CFI criterion), so relationships, ranks, and profiles can be compared across countries with confidence. Evidence for <strong>scalar invariance</strong> is more limited, so absolute latent-mean comparisons are interpreted more cautiously <span class="citation" data-cites="CheungRensvold2002 Chen2007">(<a href="#ref-Chen2007" role="doc-biblioref">Chen, 2007</a>; <a href="#ref-CheungRensvold2002" role="doc-biblioref">Cheung &amp; Rensvold, 2002</a>)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-f05" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -4336,7 +4337,21 @@ Table&nbsp;8
 </div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-Chen2007" class="csl-entry" role="listitem">
+Chen, F. F. (2007). Sensitivity of goodness of fit indexes to lack of measurement invariance. <em>Structural Equation Modeling: A Multidisciplinary Journal</em>, <em>14</em>(3), 464–504. <a href="https://doi.org/10.1080/10705510701301834">https://doi.org/10.1080/10705510701301834</a>
+</div>
+<div id="ref-CheungRensvold2002" class="csl-entry" role="listitem">
+Cheung, G. W., &amp; Rensvold, R. B. (2002). Evaluating goodness-of-fit indexes for testing measurement invariance. <em>Structural Equation Modeling: A Multidisciplinary Journal</em>, <em>9</em>(2), 233–255. <a href="https://doi.org/10.1207/S15328007SEM0902_5">https://doi.org/10.1207/S15328007SEM0902_5</a>
+</div>
+<div id="ref-Cronbach1951" class="csl-entry" role="listitem">
+Cronbach, L. J. (1951). Coefficient alpha and the internal structure of tests. <em>Psychometrika</em>, <em>16</em>(3), 297–334. <a href="https://doi.org/10.1007/BF02310555">https://doi.org/10.1007/BF02310555</a>
+</div>
+<div id="ref-McDonald1999" class="csl-entry" role="listitem">
+McDonald, R. P. (1999). <em>Test theory: A unified treatment</em>. Lawrence Erlbaum Associates.
+</div>
+</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

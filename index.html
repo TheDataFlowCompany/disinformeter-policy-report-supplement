@@ -25,7 +25,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -260,31 +280,12 @@ ul.task-list li input[type="checkbox"] {
     <span class="navbar-title">DisInforMeter — D5.3 Supplement</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./07-overview.html"> 
-<span class="menu-text">How to read this</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./07i-reproducibility.html"> 
-<span class="menu-text">Reproducibility</span></a>
-  </li>  
-</ul>
-</div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
+        <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/TheDataFlowCompany/disinformeter-policy-report-supplement" title="Source repository" class="quarto-navigation-tool px-1" aria-label="Source repository"><i class="bi bi-github"></i></a>
     <a href="https://osf.io/" title="OSF reuse package (forthcoming)" class="quarto-navigation-tool px-1" aria-label="OSF reuse package (forthcoming)"><i class="bi bi-database-fill"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -473,7 +474,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            AdCogito
+            AdCogito · Vilnius University
           </p>
       </div>
     <div class="quarto-title-meta-contents">
@@ -481,7 +482,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            AdCogito
+            AdCogito · Vilnius University
           </p>
       </div>
     <div class="quarto-title-meta-contents">
@@ -497,7 +498,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            AdCogito
+            AdCogito · Vilnius University
           </p>
       </div>
   </div>
@@ -528,7 +529,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <section id="what-this-supplement-is" class="level1"><h1>What this supplement is</h1>
-<p>European policy already monitors the <strong>supply side</strong> of foreign information manipulation and interference (FIMI): narratives, incidents, platform behaviour, coordinated campaigns, and cross-border threat activity. What has been missing is a validated, comparable measure of the <strong>audience side</strong> — whether publics <em>detect</em> manipulative foreign-origin content, which receptivity-relevant attitudes travel with detection or with blind spots, and where survey, narrative-monitoring, and platform evidence should be read together <span class="citation" data-cites="EEAS2024FIMI2 EEAS2026FIMI4 EU2022DSA">(<a href="#ref-EEAS2024FIMI2" role="doc-biblioref"><strong>EEAS2024FIMI2?</strong></a>; <a href="#ref-EEAS2026FIMI4" role="doc-biblioref"><strong>EEAS2026FIMI4?</strong></a>; <a href="#ref-EU2022DSA" role="doc-biblioref"><strong>EU2022DSA?</strong></a>)</span>.</p>
+<p>European policy already monitors the <strong>supply side</strong> of foreign information manipulation and interference (FIMI): narratives, incidents, platform behaviour, coordinated campaigns, and cross-border threat activity. What has been missing is a validated, comparable measure of the <strong>audience side</strong> — whether publics <em>detect</em> manipulative foreign-origin content, which receptivity-relevant attitudes travel with detection or with blind spots, and where survey, narrative-monitoring, and platform evidence should be read together <span class="citation" data-cites="EEAS2024FIMI2 EEAS2026FIMI4 EU2022DSA">(<a href="#ref-EEAS2024FIMI2" role="doc-biblioref">EEAS, 2024</a>, <a href="#ref-EEAS2026FIMI4" role="doc-biblioref">2026</a>; <a href="#ref-EU2022DSA" role="doc-biblioref">European Parliament and Council of the European Union, 2022</a>)</span>.</p>
 <p>The <strong>DisInforMeter</strong> fills that gap. Across five studies and more than 10,000 respondents it measures five affective–cognitive domains — <strong>Threat</strong>, <strong>Betrayal / Abandonment</strong>, <strong>Fear / Pragmatism</strong>, <strong>Foreign-Power Admiration</strong>, and a <strong>General Anchor</strong> — and pairs them, in the multinational wave, with a <strong>FIMI detection criterion</strong> built from confirmed manipulation cases.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -670,9 +671,20 @@ Warning
 
 
 
+
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>Funded by the European Union (Grant Agreement No.&nbsp;101132671). Views and opinions expressed are those of the authors only and do not necessarily reflect those of the European Union. Neither the European Union nor the granting authority can be held responsible for them.</p>
-</div></div></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</div></div></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-EEAS2024FIMI2" class="csl-entry" role="listitem">
+EEAS. (2024). <em>2nd EEAS report on foreign information manipulation and interference threats: A framework for networked defence</em>. European External Action Service. <a href="https://euvsdisinfo.eu/eeas-2nd-fimi-threat-report-january-2024/">https://euvsdisinfo.eu/eeas-2nd-fimi-threat-report-january-2024/</a>
+</div>
+<div id="ref-EEAS2026FIMI4" class="csl-entry" role="listitem">
+EEAS. (2026). <em>4th EEAS report on foreign information manipulation and interference threats</em>. European External Action Service. <a href="https://euvsdisinfo.eu/eeas-4th-fimi-threat-report-march-2026/">https://euvsdisinfo.eu/eeas-4th-fimi-threat-report-march-2026/</a>
+</div>
+<div id="ref-EU2022DSA" class="csl-entry" role="listitem">
+European Parliament and Council of the European Union. (2022). <em>Regulation (EU) 2022/2065 of 19 october 2022 on a single market for digital services and amending directive 2000/31/EC (digital services act)</em>. <a href="https://eur-lex.europa.eu/eli/reg/2022/2065/oj/eng">https://eur-lex.europa.eu/eli/reg/2022/2065/oj/eng</a>
+</div>
+</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

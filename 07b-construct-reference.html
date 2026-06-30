@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -292,31 +312,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">DisInforMeter — D5.3 Supplement</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./07-overview.html"> 
-<span class="menu-text">How to read this</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./07i-reproducibility.html"> 
-<span class="menu-text">Reproducibility</span></a>
-  </li>  
-</ul>
-</div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
+        <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/TheDataFlowCompany/disinformeter-policy-report-supplement" title="Source repository" class="quarto-navigation-tool px-1" aria-label="Source repository"><i class="bi bi-github"></i></a>
     <a href="https://osf.io/" title="OSF reuse package (forthcoming)" class="quarto-navigation-tool px-1" aria-label="OSF reuse package (forthcoming)"><i class="bi bi-database-fill"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -529,7 +530,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section><section id="construct-architecture" class="level1"><h1>Construct architecture</h1>
-<p>The instrument separates <strong>five receptivity-relevant domains</strong> from the <strong>FIMI detection criterion</strong>. Each higher-order domain aggregates narrower first-order belief blocks; the criterion is kept analytically separate so that detection and receptivity can be related rather than confounded <span class="citation" data-cites="StephanYbarraMorrison2009 OECD2017Trust AkkermanMuddeZaslove2014">(<a href="#ref-StephanYbarraMorrison2009" role="doc-biblioref"><strong>StephanYbarraMorrison2009?</strong></a>; <a href="#ref-OECD2017Trust" role="doc-biblioref"><strong>OECD2017Trust?</strong></a>; <a href="#ref-AkkermanMuddeZaslove2014" role="doc-biblioref"><strong>AkkermanMuddeZaslove2014?</strong></a>)</span>.</p>
+<p>The instrument separates <strong>five receptivity-relevant domains</strong> from the <strong>FIMI detection criterion</strong>. Each higher-order domain aggregates narrower first-order belief blocks; the criterion is kept analytically separate so that detection and receptivity can be related rather than confounded <span class="citation" data-cites="StephanYbarraMorrison2009 OECD2017Trust AkkermanMuddeZaslove2014">(<a href="#ref-AkkermanMuddeZaslove2014" role="doc-biblioref">Akkerman et al., 2014</a>; <a href="#ref-OECD2017Trust" role="doc-biblioref">OECD, 2017</a>; <a href="#ref-StephanYbarraMorrison2009" role="doc-biblioref">Stephan et al., 2009</a>)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-architecture" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -587,7 +588,7 @@ Table&nbsp;1: Policy-facing interpretation of the five DisInforMeter domains.
 </figure>
 </div>
 </div>
-<p>The instrument was not written as a single questionnaire exercise. It was built through a staged evidence pipeline — conceptual work, item generation and harmonisation, empirical refinement, cross-national comparability checks, and external validation — summarised in the construction funnel below <span class="citation" data-cites="DeVellis2017 BoatengEtAl2018 ClarkWatson1995">(<a href="#ref-DeVellis2017" role="doc-biblioref"><strong>DeVellis2017?</strong></a>; <a href="#ref-BoatengEtAl2018" role="doc-biblioref"><strong>BoatengEtAl2018?</strong></a>; <a href="#ref-ClarkWatson1995" role="doc-biblioref"><strong>ClarkWatson1995?</strong></a>)</span>.</p>
+<p>The instrument was not written as a single questionnaire exercise. It was built through a staged evidence pipeline — conceptual work, item generation and harmonisation, empirical refinement, cross-national comparability checks, and external validation — summarised in the construction funnel below <span class="citation" data-cites="DeVellis2017 BoatengEtAl2018 ClarkWatson1995">(<a href="#ref-BoatengEtAl2018" role="doc-biblioref">Boateng et al., 2018</a>; <a href="#ref-ClarkWatson1995" role="doc-biblioref">Clark &amp; Watson, 1995</a>; <a href="#ref-DeVellis2017" role="doc-biblioref">DeVellis, 2017</a>)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-funnel" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -4538,7 +4539,27 @@ Table&nbsp;8
 </div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-AkkermanMuddeZaslove2014" class="csl-entry" role="listitem">
+Akkerman, A., Mudde, C., &amp; Zaslove, A. (2014). How populist are the people? Measuring populist attitudes in voters. <em>Comparative Political Studies</em>, <em>47</em>(9), 1324–1353. <a href="https://doi.org/10.1177/0010414013512600">https://doi.org/10.1177/0010414013512600</a>
+</div>
+<div id="ref-BoatengEtAl2018" class="csl-entry" role="listitem">
+Boateng, G. O., Neilands, T. B., Frongillo, E. A., Melgar-Quinonez, H. R., &amp; Young, S. L. (2018). Best practices for developing and validating scales for health, social, and behavioral research: A primer. <em>Frontiers in Public Health</em>, <em>6</em>, 149. <a href="https://doi.org/10.3389/fpubh.2018.00149">https://doi.org/10.3389/fpubh.2018.00149</a>
+</div>
+<div id="ref-ClarkWatson1995" class="csl-entry" role="listitem">
+Clark, L. A., &amp; Watson, D. (1995). Constructing validity: Basic issues in objective scale development. <em>Psychological Assessment</em>, <em>7</em>(3), 309–319. <a href="https://doi.org/10.1037/1040-3590.7.3.309">https://doi.org/10.1037/1040-3590.7.3.309</a>
+</div>
+<div id="ref-DeVellis2017" class="csl-entry" role="listitem">
+DeVellis, R. F. (2017). <em>Scale development: Theory and applications</em> (4th ed.). SAGE.
+</div>
+<div id="ref-OECD2017Trust" class="csl-entry" role="listitem">
+OECD. (2017). <em>OECD guidelines on measuring trust</em>. OECD Publishing. <a href="https://doi.org/10.1787/9789264278219-en">https://doi.org/10.1787/9789264278219-en</a>
+</div>
+<div id="ref-StephanYbarraMorrison2009" class="csl-entry" role="listitem">
+Stephan, W. G., Ybarra, O., &amp; Morrison, K. R. (2009). Intergroup threat theory. In T. D. Nelson (Ed.), <em>Handbook of prejudice, stereotyping, and discrimination</em> (pp. 43–59). Psychology Press.
+</div>
+</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

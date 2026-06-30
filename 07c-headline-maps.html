@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -292,31 +312,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">DisInforMeter — D5.3 Supplement</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./07-overview.html"> 
-<span class="menu-text">How to read this</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./07i-reproducibility.html"> 
-<span class="menu-text">Reproducibility</span></a>
-  </li>  
-</ul>
-</div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
+        <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/TheDataFlowCompany/disinformeter-policy-report-supplement" title="Source repository" class="quarto-navigation-tool px-1" aria-label="Source repository"><i class="bi bi-github"></i></a>
     <a href="https://osf.io/" title="OSF reuse package (forthcoming)" class="quarto-navigation-tool px-1" aria-label="OSF reuse package (forthcoming)"><i class="bi bi-database-fill"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -706,51 +707,58 @@ Table&nbsp;1: Countries ranked by Full FIMI detection (mean, with bootstrapped 9
 <span id="cb1-57"><a href="#cb1-57"></a>spread <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">abs</span>(<span class="fu">range</span>(dat<span class="sc">$</span>mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> eu_mean)) <span class="sc">*</span> <span class="fl">1.05</span></span>
 <span id="cb1-58"><a href="#cb1-58"></a>lim    <span class="ot">&lt;-</span> <span class="fu">c</span>(eu_mean <span class="sc">-</span> spread, eu_mean <span class="sc">+</span> spread)</span>
 <span id="cb1-59"><a href="#cb1-59"></a></span>
-<span id="cb1-60"><a href="#cb1-60"></a>scale <span class="ot">&lt;-</span> <span class="fu">policy_report_scale_diverging</span>(</span>
-<span id="cb1-61"><a href="#cb1-61"></a>  <span class="at">midpoint =</span> eu_mean,</span>
-<span id="cb1-62"><a href="#cb1-62"></a>  <span class="at">limits   =</span> lim,</span>
-<span id="cb1-63"><a href="#cb1-63"></a>  <span class="at">label    =</span> <span class="fu">sprintf</span>(<span class="st">"FIMI (Full) mean • EU mean = %.2f"</span>, eu_mean),</span>
-<span id="cb1-64"><a href="#cb1-64"></a>  <span class="at">breaks   =</span> <span class="fu">c</span>(lim[<span class="dv">1</span>], eu_mean, lim[<span class="dv">2</span>]),</span>
-<span id="cb1-65"><a href="#cb1-65"></a>  <span class="at">labels   =</span> <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, <span class="fu">c</span>(lim[<span class="dv">1</span>], eu_mean, lim[<span class="dv">2</span>]))</span>
-<span id="cb1-66"><a href="#cb1-66"></a>)</span>
-<span id="cb1-67"><a href="#cb1-67"></a></span>
-<span id="cb1-68"><a href="#cb1-68"></a>p <span class="ot">&lt;-</span> <span class="fu">build_choropleth</span>(</span>
-<span id="cb1-69"><a href="#cb1-69"></a>  <span class="at">values    =</span> dat,</span>
-<span id="cb1-70"><a href="#cb1-70"></a>  <span class="at">value_col =</span> <span class="st">"mean"</span>,</span>
-<span id="cb1-71"><a href="#cb1-71"></a>  <span class="at">scale     =</span> scale,</span>
-<span id="cb1-72"><a href="#cb1-72"></a>  <span class="at">label_fmt =</span> <span class="st">"%.1f"</span>,</span>
-<span id="cb1-73"><a href="#cb1-73"></a>  <span class="at">script_id =</span> SCRIPT_ID</span>
-<span id="cb1-74"><a href="#cb1-74"></a>)</span>
-<span id="cb1-75"><a href="#cb1-75"></a></span>
-<span id="cb1-76"><a href="#cb1-76"></a>caption <span class="ot">&lt;-</span> <span class="fu">policy_report_caption</span>(</span>
-<span id="cb1-77"><a href="#cb1-77"></a>  <span class="at">source =</span> <span class="st">"outputs/policy_report/tables/s4_country_means_fimi.csv"</span>,</span>
-<span id="cb1-78"><a href="#cb1-78"></a>  <span class="at">n      =</span> <span class="fu">sum</span>(dat<span class="sc">$</span>n),</span>
-<span id="cb1-79"><a href="#cb1-79"></a>  <span class="at">script =</span> <span class="fu">paste0</span>(SCRIPT_ID, <span class="st">".R"</span>),</span>
-<span id="cb1-80"><a href="#cb1-80"></a>  <span class="at">prefix =</span> <span class="st">"S4 (2025). FIMI Full operationalisation (news1–8). All eight items are confirmed FIMI cases; respondents rated each headline from 1 = 'certainly NOT manipulated' to 7 = 'certainly manipulated', so higher = better detection. Projection: ETRS89 / LAEA Europe (EPSG:3035)."</span></span>
+<span id="cb1-60"><a href="#cb1-60"></a><span class="co"># Colour convention (2026-06 revision): RED = below the pan-European mean</span></span>
+<span id="cb1-61"><a href="#cb1-61"></a><span class="co"># (a detection blind spot, the policy-concerning direction); BLUE = above the</span></span>
+<span id="cb1-62"><a href="#cb1-62"></a><span class="co"># mean (better detection). This flips the earlier high=red scheme so that red</span></span>
+<span id="cb1-63"><a href="#cb1-63"></a><span class="co"># reads as "danger" consistently with the receptivity (F-09) and source-gap</span></span>
+<span id="cb1-64"><a href="#cb1-64"></a><span class="co"># (F-12) maps.</span></span>
+<span id="cb1-65"><a href="#cb1-65"></a>scale <span class="ot">&lt;-</span> <span class="fu">policy_report_scale_diverging</span>(</span>
+<span id="cb1-66"><a href="#cb1-66"></a>  <span class="at">midpoint =</span> eu_mean,</span>
+<span id="cb1-67"><a href="#cb1-67"></a>  <span class="at">limits   =</span> lim,</span>
+<span id="cb1-68"><a href="#cb1-68"></a>  <span class="at">label    =</span> <span class="fu">sprintf</span>(<span class="st">"FIMI (Full) mean • EU mean = %.2f"</span>, eu_mean),</span>
+<span id="cb1-69"><a href="#cb1-69"></a>  <span class="at">low      =</span> <span class="st">"#B2182B"</span>,   <span class="co"># below EU mean = red (blind spot)</span></span>
+<span id="cb1-70"><a href="#cb1-70"></a>  <span class="at">high     =</span> <span class="st">"#2166AC"</span>,   <span class="co"># above EU mean = blue (better detection)</span></span>
+<span id="cb1-71"><a href="#cb1-71"></a>  <span class="at">breaks   =</span> <span class="fu">c</span>(lim[<span class="dv">1</span>], eu_mean, lim[<span class="dv">2</span>]),</span>
+<span id="cb1-72"><a href="#cb1-72"></a>  <span class="at">labels   =</span> <span class="fu">sprintf</span>(<span class="st">"%.2f"</span>, <span class="fu">c</span>(lim[<span class="dv">1</span>], eu_mean, lim[<span class="dv">2</span>]))</span>
+<span id="cb1-73"><a href="#cb1-73"></a>)</span>
+<span id="cb1-74"><a href="#cb1-74"></a></span>
+<span id="cb1-75"><a href="#cb1-75"></a>p <span class="ot">&lt;-</span> <span class="fu">build_choropleth</span>(</span>
+<span id="cb1-76"><a href="#cb1-76"></a>  <span class="at">values    =</span> dat,</span>
+<span id="cb1-77"><a href="#cb1-77"></a>  <span class="at">value_col =</span> <span class="st">"mean"</span>,</span>
+<span id="cb1-78"><a href="#cb1-78"></a>  <span class="at">scale     =</span> scale,</span>
+<span id="cb1-79"><a href="#cb1-79"></a>  <span class="at">label_fmt =</span> <span class="st">"%.1f"</span>,</span>
+<span id="cb1-80"><a href="#cb1-80"></a>  <span class="at">script_id =</span> SCRIPT_ID</span>
 <span id="cb1-81"><a href="#cb1-81"></a>)</span>
 <span id="cb1-82"><a href="#cb1-82"></a></span>
-<span id="cb1-83"><a href="#cb1-83"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
-<span id="cb1-84"><a href="#cb1-84"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
-<span id="cb1-85"><a href="#cb1-85"></a>    <span class="at">title    =</span> <span class="st">"Detection of foreign-information manipulation across Europe (S4)"</span>,</span>
-<span id="cb1-86"><a href="#cb1-86"></a>    <span class="at">subtitle =</span> <span class="fu">sprintf</span>(<span class="st">"Country means on the 8-item FIMI battery (1–7, higher = better detection); pan-European mean = %.2f."</span>,</span>
-<span id="cb1-87"><a href="#cb1-87"></a>                       eu_mean),</span>
-<span id="cb1-88"><a href="#cb1-88"></a>    <span class="at">caption  =</span> caption</span>
-<span id="cb1-89"><a href="#cb1-89"></a>  )</span>
-<span id="cb1-90"><a href="#cb1-90"></a></span>
-<span id="cb1-91"><a href="#cb1-91"></a>dim_p <span class="ot">&lt;-</span> POLICY_REPORT_FIGURE_DIMENSIONS<span class="sc">$</span>full_page</span>
-<span id="cb1-92"><a href="#cb1-92"></a>paths <span class="ot">&lt;-</span> <span class="fu">safe_ggsave_rds</span>(p, OUT_BASE,</span>
-<span id="cb1-93"><a href="#cb1-93"></a>                         <span class="at">width  =</span> dim_p<span class="sc">$</span>width,</span>
-<span id="cb1-94"><a href="#cb1-94"></a>                         <span class="at">height =</span> dim_p<span class="sc">$</span>height)</span>
-<span id="cb1-95"><a href="#cb1-95"></a></span>
-<span id="cb1-96"><a href="#cb1-96"></a><span class="fu">policy_report_log_outputs</span>(</span>
-<span id="cb1-97"><a href="#cb1-97"></a>  SCRIPT_ID, paths, <span class="at">input_rows =</span> <span class="fu">nrow</span>(dat),</span>
-<span id="cb1-98"><a href="#cb1-98"></a>  <span class="at">extra =</span> <span class="fu">c</span>(<span class="fu">sprintf</span>(<span class="st">"EU mean (FIMI Full) = %.3f"</span>, eu_mean),</span>
-<span id="cb1-99"><a href="#cb1-99"></a>            <span class="fu">sprintf</span>(<span class="st">"Country range = [%.2f, %.2f]"</span>,</span>
-<span id="cb1-100"><a href="#cb1-100"></a>                    <span class="fu">min</span>(dat<span class="sc">$</span>mean), <span class="fu">max</span>(dat<span class="sc">$</span>mean)),</span>
-<span id="cb1-101"><a href="#cb1-101"></a>            <span class="fu">sprintf</span>(<span class="st">"Projection: EPSG:%d (Lambert Azimuthal Equal Area)"</span>,</span>
-<span id="cb1-102"><a href="#cb1-102"></a>                    POLICY_REPORT_PROJ_LAEA),</span>
-<span id="cb1-103"><a href="#cb1-103"></a>            <span class="fu">sprintf</span>(<span class="st">"Join misses: %s"</span>,</span>
-<span id="cb1-104"><a href="#cb1-104"></a>                    <span class="fu">paste</span>(<span class="fu">attr</span>(p, <span class="st">"join_miss"</span>), <span class="at">collapse =</span> <span class="st">", "</span>))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-83"><a href="#cb1-83"></a>caption <span class="ot">&lt;-</span> <span class="fu">policy_report_caption</span>(</span>
+<span id="cb1-84"><a href="#cb1-84"></a>  <span class="at">source =</span> <span class="st">"outputs/policy_report/tables/s4_country_means_fimi.csv"</span>,</span>
+<span id="cb1-85"><a href="#cb1-85"></a>  <span class="at">n      =</span> <span class="fu">sum</span>(dat<span class="sc">$</span>n),</span>
+<span id="cb1-86"><a href="#cb1-86"></a>  <span class="at">script =</span> <span class="fu">paste0</span>(SCRIPT_ID, <span class="st">".R"</span>),</span>
+<span id="cb1-87"><a href="#cb1-87"></a>  <span class="at">prefix =</span> <span class="st">"S4 (2025). FIMI Full operationalisation (news1–8). All eight items are confirmed FIMI cases; respondents rated each headline from 1 = 'certainly NOT manipulated' to 7 = 'certainly manipulated', so higher = better detection. Projection: ETRS89 / LAEA Europe (EPSG:3035)."</span></span>
+<span id="cb1-88"><a href="#cb1-88"></a>)</span>
+<span id="cb1-89"><a href="#cb1-89"></a></span>
+<span id="cb1-90"><a href="#cb1-90"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb1-91"><a href="#cb1-91"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
+<span id="cb1-92"><a href="#cb1-92"></a>    <span class="at">title    =</span> <span class="st">"Detection of foreign-information manipulation across Europe (S4)"</span>,</span>
+<span id="cb1-93"><a href="#cb1-93"></a>    <span class="at">subtitle =</span> <span class="fu">sprintf</span>(<span class="st">"Country means on the 8-item FIMI battery (1–7, higher = better detection); pan-European mean = %.2f."</span>,</span>
+<span id="cb1-94"><a href="#cb1-94"></a>                       eu_mean),</span>
+<span id="cb1-95"><a href="#cb1-95"></a>    <span class="at">caption  =</span> caption</span>
+<span id="cb1-96"><a href="#cb1-96"></a>  )</span>
+<span id="cb1-97"><a href="#cb1-97"></a></span>
+<span id="cb1-98"><a href="#cb1-98"></a>dim_p <span class="ot">&lt;-</span> POLICY_REPORT_FIGURE_DIMENSIONS<span class="sc">$</span>full_page</span>
+<span id="cb1-99"><a href="#cb1-99"></a>paths <span class="ot">&lt;-</span> <span class="fu">safe_ggsave_rds</span>(p, OUT_BASE,</span>
+<span id="cb1-100"><a href="#cb1-100"></a>                         <span class="at">width  =</span> dim_p<span class="sc">$</span>width,</span>
+<span id="cb1-101"><a href="#cb1-101"></a>                         <span class="at">height =</span> dim_p<span class="sc">$</span>height)</span>
+<span id="cb1-102"><a href="#cb1-102"></a></span>
+<span id="cb1-103"><a href="#cb1-103"></a><span class="fu">policy_report_log_outputs</span>(</span>
+<span id="cb1-104"><a href="#cb1-104"></a>  SCRIPT_ID, paths, <span class="at">input_rows =</span> <span class="fu">nrow</span>(dat),</span>
+<span id="cb1-105"><a href="#cb1-105"></a>  <span class="at">extra =</span> <span class="fu">c</span>(<span class="fu">sprintf</span>(<span class="st">"EU mean (FIMI Full) = %.3f"</span>, eu_mean),</span>
+<span id="cb1-106"><a href="#cb1-106"></a>            <span class="fu">sprintf</span>(<span class="st">"Country range = [%.2f, %.2f]"</span>,</span>
+<span id="cb1-107"><a href="#cb1-107"></a>                    <span class="fu">min</span>(dat<span class="sc">$</span>mean), <span class="fu">max</span>(dat<span class="sc">$</span>mean)),</span>
+<span id="cb1-108"><a href="#cb1-108"></a>            <span class="fu">sprintf</span>(<span class="st">"Projection: EPSG:%d (Lambert Azimuthal Equal Area)"</span>,</span>
+<span id="cb1-109"><a href="#cb1-109"></a>                    POLICY_REPORT_PROJ_LAEA),</span>
+<span id="cb1-110"><a href="#cb1-110"></a>            <span class="fu">sprintf</span>(<span class="st">"Join misses: %s"</span>,</span>
+<span id="cb1-111"><a href="#cb1-111"></a>                    <span class="fu">paste</span>(<span class="fu">attr</span>(p, <span class="st">"join_miss"</span>), <span class="at">collapse =</span> <span class="st">", "</span>))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -948,7 +956,7 @@ Table&nbsp;2: Paired Russian − Chinese detection difference by country (positi
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This result is <strong>bounded by the implemented item bank</strong>. It compares the specific Russian- and Chinese-origin cases that were fielded; it does <strong>not</strong> show that Russian FIMI is harmless, nor does it generalise to all Russian, Chinese, domestic, or other foreign-origin manipulation. Treat the Chinese-origin blind spot as a <strong>monitoring hypothesis</strong> for refreshed item banks and narrative review <span class="citation" data-cites="ShadishCookCampbell2002">(<a href="#ref-ShadishCookCampbell2002" role="doc-biblioref"><strong>ShadishCookCampbell2002?</strong></a>)</span>.</p>
+<p>This result is <strong>bounded by the implemented item bank</strong>. It compares the specific Russian- and Chinese-origin cases that were fielded; it does <strong>not</strong> show that Russian FIMI is harmless, nor does it generalise to all Russian, Chinese, domestic, or other foreign-origin manipulation. Treat the Chinese-origin blind spot as a <strong>monitoring hypothesis</strong> for refreshed item banks and narrative review <span class="citation" data-cites="ShadishCookCampbell2002">(<a href="#ref-ShadishCookCampbell2002" role="doc-biblioref">Shadish et al., 2002</a>)</span>.</p>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -1267,7 +1275,7 @@ Figure&nbsp;5: Country × FIMI-item detection heatmap. Rows = countries (ordered
 <span id="cb3-93"><a href="#cb3-93"></a>  <span class="at">source =</span> <span class="st">"outputs/policy_report/tables/s4_country_item_means.csv"</span>,</span>
 <span id="cb3-94"><a href="#cb3-94"></a>  <span class="at">n      =</span> n_total,</span>
 <span id="cb3-95"><a href="#cb3-95"></a>  <span class="at">script =</span> <span class="fu">paste0</span>(SCRIPT_ID, <span class="st">".R"</span>),</span>
-<span id="cb3-96"><a href="#cb3-96"></a>  <span class="at">prefix =</span> <span class="fu">sprintf</span>(<span class="st">"S4 (2025). All eight items are confirmed FIMI cases; respondents rated each headline from 1 = 'certainly NOT manipulated' to 7 = 'certainly manipulated', so higher = better detection. Rows ordered by overall S4 FIMI Full detection mean (right-most number); columns grouped by Russian then Chinese origin. Diverging palette centred on pan-European Full FIMI detection mean = %.2f."</span>, midpoint)</span>
+<span id="cb3-96"><a href="#cb3-96"></a>  <span class="at">prefix =</span> <span class="fu">sprintf</span>(<span class="st">"S4 (2025). All eight items are confirmed FIMI cases; respondents rated each headline from 1 = 'certainly NOT manipulated' to 7 = 'certainly manipulated', so higher = better detection. Rows ordered by overall S4 FIMI Full detection mean (right-most number); columns grouped by Russian then Chinese origin. Diverging palette centred on the pan-European Full FIMI detection mean = %.2f (red = below mean / blind spot, blue = above mean / better detection)."</span>, midpoint)</span>
 <span id="cb3-97"><a href="#cb3-97"></a>)</span>
 <span id="cb3-98"><a href="#cb3-98"></a></span>
 <span id="cb3-99"><a href="#cb3-99"></a>p <span class="ot">&lt;-</span> <span class="fu">build_heatmap</span>(</span>
@@ -1282,44 +1290,49 @@ Figure&nbsp;5: Country × FIMI-item detection heatmap. Rows = countries (ordered
 <span id="cb3-108"><a href="#cb3-108"></a>  <span class="at">label_fmt  =</span> <span class="st">"%.1f"</span>,</span>
 <span id="cb3-109"><a href="#cb3-109"></a>  <span class="at">col_facet  =</span> <span class="st">"origin_short"</span>,</span>
 <span id="cb3-110"><a href="#cb3-110"></a>  <span class="at">x_label    =</span> <span class="cn">NULL</span>,</span>
-<span id="cb3-111"><a href="#cb3-111"></a>  <span class="at">y_label    =</span> <span class="st">"Country • S4 FIMI Full detection mean"</span></span>
-<span id="cb3-112"><a href="#cb3-112"></a>) <span class="sc">+</span></span>
-<span id="cb3-113"><a href="#cb3-113"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
-<span id="cb3-114"><a href="#cb3-114"></a>    <span class="at">title    =</span> <span class="st">"Country × FIMI item detection (S4)"</span>,</span>
-<span id="cb3-115"><a href="#cb3-115"></a>    <span class="at">subtitle =</span> <span class="fu">policy_report_wrap</span>(<span class="st">"Cells show country-level mean detection score (1–7); higher = better at flagging that item as manipulated."</span>, <span class="at">width =</span> <span class="dv">100</span>),</span>
-<span id="cb3-116"><a href="#cb3-116"></a>    <span class="at">caption  =</span> caption</span>
-<span id="cb3-117"><a href="#cb3-117"></a>  ) <span class="sc">+</span></span>
-<span id="cb3-118"><a href="#cb3-118"></a>  <span class="co"># Use the central right-margin convention for figures with diagonal column</span></span>
-<span id="cb3-119"><a href="#cb3-119"></a>  <span class="co"># labels (header overhang). Title / subtitle / caption styling and "plot"</span></span>
-<span id="cb3-120"><a href="#cb3-120"></a>  <span class="co"># anchoring come from `theme_policy_report()`; we only override the</span></span>
-<span id="cb3-121"><a href="#cb3-121"></a>  <span class="co"># axis-text rotation here.</span></span>
-<span id="cb3-122"><a href="#cb3-122"></a>  <span class="fu">theme_policy_report</span>(<span class="at">base_size =</span> <span class="dv">10</span>, <span class="at">right_extra =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
-<span id="cb3-123"><a href="#cb3-123"></a>  ggplot2<span class="sc">::</span><span class="fu">theme</span>(</span>
-<span id="cb3-124"><a href="#cb3-124"></a>    <span class="at">panel.grid       =</span> ggplot2<span class="sc">::</span><span class="fu">element_blank</span>(),</span>
-<span id="cb3-125"><a href="#cb3-125"></a>    <span class="at">strip.placement  =</span> <span class="st">"outside"</span>,</span>
-<span id="cb3-126"><a href="#cb3-126"></a>    <span class="at">strip.background =</span> ggplot2<span class="sc">::</span><span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey95"</span>, <span class="at">colour =</span> <span class="cn">NA</span>),</span>
-<span id="cb3-127"><a href="#cb3-127"></a>    <span class="at">axis.text.x.top  =</span> ggplot2<span class="sc">::</span><span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">50</span>, <span class="at">hjust =</span> <span class="dv">0</span>,</span>
-<span id="cb3-128"><a href="#cb3-128"></a>                                              <span class="at">vjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">8</span>,</span>
-<span id="cb3-129"><a href="#cb3-129"></a>                                              <span class="at">lineheight =</span> <span class="fl">0.9</span>),</span>
-<span id="cb3-130"><a href="#cb3-130"></a>    <span class="at">axis.text.x      =</span> ggplot2<span class="sc">::</span><span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">50</span>, <span class="at">hjust =</span> <span class="dv">0</span>,</span>
-<span id="cb3-131"><a href="#cb3-131"></a>                                              <span class="at">vjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">8</span>,</span>
-<span id="cb3-132"><a href="#cb3-132"></a>                                              <span class="at">lineheight =</span> <span class="fl">0.9</span>)</span>
-<span id="cb3-133"><a href="#cb3-133"></a>  )</span>
-<span id="cb3-134"><a href="#cb3-134"></a></span>
-<span id="cb3-135"><a href="#cb3-135"></a>dim_p <span class="ot">&lt;-</span> POLICY_REPORT_FIGURE_DIMENSIONS<span class="sc">$</span>full_page</span>
-<span id="cb3-136"><a href="#cb3-136"></a>paths <span class="ot">&lt;-</span> <span class="fu">safe_ggsave_rds</span>(p, OUT_BASE,</span>
-<span id="cb3-137"><a href="#cb3-137"></a>                         <span class="at">width  =</span> dim_p<span class="sc">$</span>width <span class="sc">+</span> <span class="fl">0.5</span>,</span>
-<span id="cb3-138"><a href="#cb3-138"></a>                         <span class="at">height =</span> dim_p<span class="sc">$</span>height)</span>
+<span id="cb3-111"><a href="#cb3-111"></a>  <span class="at">y_label    =</span> <span class="st">"Country • S4 FIMI Full detection mean"</span>,</span>
+<span id="cb3-112"><a href="#cb3-112"></a>  <span class="co"># Colour convention (2026-06 revision): RED = below the pan-European</span></span>
+<span id="cb3-113"><a href="#cb3-113"></a>  <span class="co"># detection mean (blind spot), BLUE = above (better detection), matching the</span></span>
+<span id="cb3-114"><a href="#cb3-114"></a>  <span class="co"># F-07/F-10/F-11 choropleths so red reads as "danger" on every detection map.</span></span>
+<span id="cb3-115"><a href="#cb3-115"></a>  <span class="at">low_colour  =</span> <span class="st">"#B2182B"</span>,   <span class="co"># below EU mean = red (blind spot)</span></span>
+<span id="cb3-116"><a href="#cb3-116"></a>  <span class="at">high_colour =</span> <span class="st">"#2166AC"</span>    <span class="co"># above EU mean = blue (better detection)</span></span>
+<span id="cb3-117"><a href="#cb3-117"></a>) <span class="sc">+</span></span>
+<span id="cb3-118"><a href="#cb3-118"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
+<span id="cb3-119"><a href="#cb3-119"></a>    <span class="at">title    =</span> <span class="st">"Country × FIMI item detection (S4)"</span>,</span>
+<span id="cb3-120"><a href="#cb3-120"></a>    <span class="at">subtitle =</span> <span class="fu">policy_report_wrap</span>(<span class="st">"Cells show country-level mean detection score (1–7); higher = better at flagging that item as manipulated."</span>, <span class="at">width =</span> <span class="dv">100</span>),</span>
+<span id="cb3-121"><a href="#cb3-121"></a>    <span class="at">caption  =</span> caption</span>
+<span id="cb3-122"><a href="#cb3-122"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-123"><a href="#cb3-123"></a>  <span class="co"># Use the central right-margin convention for figures with diagonal column</span></span>
+<span id="cb3-124"><a href="#cb3-124"></a>  <span class="co"># labels (header overhang). Title / subtitle / caption styling and "plot"</span></span>
+<span id="cb3-125"><a href="#cb3-125"></a>  <span class="co"># anchoring come from `theme_policy_report()`; we only override the</span></span>
+<span id="cb3-126"><a href="#cb3-126"></a>  <span class="co"># axis-text rotation here.</span></span>
+<span id="cb3-127"><a href="#cb3-127"></a>  <span class="fu">theme_policy_report</span>(<span class="at">base_size =</span> <span class="dv">10</span>, <span class="at">right_extra =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb3-128"><a href="#cb3-128"></a>  ggplot2<span class="sc">::</span><span class="fu">theme</span>(</span>
+<span id="cb3-129"><a href="#cb3-129"></a>    <span class="at">panel.grid       =</span> ggplot2<span class="sc">::</span><span class="fu">element_blank</span>(),</span>
+<span id="cb3-130"><a href="#cb3-130"></a>    <span class="at">strip.placement  =</span> <span class="st">"outside"</span>,</span>
+<span id="cb3-131"><a href="#cb3-131"></a>    <span class="at">strip.background =</span> ggplot2<span class="sc">::</span><span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey95"</span>, <span class="at">colour =</span> <span class="cn">NA</span>),</span>
+<span id="cb3-132"><a href="#cb3-132"></a>    <span class="at">axis.text.x.top  =</span> ggplot2<span class="sc">::</span><span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">50</span>, <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb3-133"><a href="#cb3-133"></a>                                              <span class="at">vjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">8</span>,</span>
+<span id="cb3-134"><a href="#cb3-134"></a>                                              <span class="at">lineheight =</span> <span class="fl">0.9</span>),</span>
+<span id="cb3-135"><a href="#cb3-135"></a>    <span class="at">axis.text.x      =</span> ggplot2<span class="sc">::</span><span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">50</span>, <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb3-136"><a href="#cb3-136"></a>                                              <span class="at">vjust =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">8</span>,</span>
+<span id="cb3-137"><a href="#cb3-137"></a>                                              <span class="at">lineheight =</span> <span class="fl">0.9</span>)</span>
+<span id="cb3-138"><a href="#cb3-138"></a>  )</span>
 <span id="cb3-139"><a href="#cb3-139"></a></span>
-<span id="cb3-140"><a href="#cb3-140"></a><span class="fu">policy_report_log_outputs</span>(</span>
-<span id="cb3-141"><a href="#cb3-141"></a>  SCRIPT_ID, paths, <span class="at">input_rows =</span> <span class="fu">nrow</span>(dat),</span>
-<span id="cb3-142"><a href="#cb3-142"></a>  <span class="at">extra =</span> <span class="fu">c</span>(<span class="fu">sprintf</span>(<span class="st">"Countries plotted: %d"</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dat<span class="sc">$</span>country_iso3))),</span>
-<span id="cb3-143"><a href="#cb3-143"></a>            <span class="fu">sprintf</span>(<span class="st">"Items plotted: %d (Russian = %d, Chinese = %d)"</span>,</span>
-<span id="cb3-144"><a href="#cb3-144"></a>                    <span class="fu">nrow</span>(col_meta),</span>
-<span id="cb3-145"><a href="#cb3-145"></a>                    <span class="fu">sum</span>(col_meta<span class="sc">$</span>origin_short <span class="sc">==</span> <span class="st">"Russian-origin"</span>),</span>
-<span id="cb3-146"><a href="#cb3-146"></a>                    <span class="fu">sum</span>(col_meta<span class="sc">$</span>origin_short <span class="sc">==</span> <span class="st">"Chinese-origin"</span>)),</span>
-<span id="cb3-147"><a href="#cb3-147"></a>            <span class="fu">sprintf</span>(<span class="st">"Midpoint (pan-EU FIMI Full mean): %.3f"</span>, midpoint))</span>
-<span id="cb3-148"><a href="#cb3-148"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-140"><a href="#cb3-140"></a>dim_p <span class="ot">&lt;-</span> POLICY_REPORT_FIGURE_DIMENSIONS<span class="sc">$</span>full_page</span>
+<span id="cb3-141"><a href="#cb3-141"></a>paths <span class="ot">&lt;-</span> <span class="fu">safe_ggsave_rds</span>(p, OUT_BASE,</span>
+<span id="cb3-142"><a href="#cb3-142"></a>                         <span class="at">width  =</span> dim_p<span class="sc">$</span>width <span class="sc">+</span> <span class="fl">0.5</span>,</span>
+<span id="cb3-143"><a href="#cb3-143"></a>                         <span class="at">height =</span> dim_p<span class="sc">$</span>height)</span>
+<span id="cb3-144"><a href="#cb3-144"></a></span>
+<span id="cb3-145"><a href="#cb3-145"></a><span class="fu">policy_report_log_outputs</span>(</span>
+<span id="cb3-146"><a href="#cb3-146"></a>  SCRIPT_ID, paths, <span class="at">input_rows =</span> <span class="fu">nrow</span>(dat),</span>
+<span id="cb3-147"><a href="#cb3-147"></a>  <span class="at">extra =</span> <span class="fu">c</span>(<span class="fu">sprintf</span>(<span class="st">"Countries plotted: %d"</span>, <span class="fu">length</span>(<span class="fu">unique</span>(dat<span class="sc">$</span>country_iso3))),</span>
+<span id="cb3-148"><a href="#cb3-148"></a>            <span class="fu">sprintf</span>(<span class="st">"Items plotted: %d (Russian = %d, Chinese = %d)"</span>,</span>
+<span id="cb3-149"><a href="#cb3-149"></a>                    <span class="fu">nrow</span>(col_meta),</span>
+<span id="cb3-150"><a href="#cb3-150"></a>                    <span class="fu">sum</span>(col_meta<span class="sc">$</span>origin_short <span class="sc">==</span> <span class="st">"Russian-origin"</span>),</span>
+<span id="cb3-151"><a href="#cb3-151"></a>                    <span class="fu">sum</span>(col_meta<span class="sc">$</span>origin_short <span class="sc">==</span> <span class="st">"Chinese-origin"</span>)),</span>
+<span id="cb3-152"><a href="#cb3-152"></a>            <span class="fu">sprintf</span>(<span class="st">"Midpoint (pan-EU FIMI Full mean): %.3f"</span>, midpoint))</span>
+<span id="cb3-153"><a href="#cb3-153"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </div>
@@ -1456,7 +1469,12 @@ Table&nbsp;3: Per-country detection means for all four FIMI operationalisations 
 </div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-ShadishCookCampbell2002" class="csl-entry" role="listitem">
+Shadish, W. R., Cook, T. D., &amp; Campbell, D. T. (2002). <em>Experimental and quasi-experimental designs for generalized causal inference</em>. Houghton Mifflin.
+</div>
+</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

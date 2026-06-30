@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -291,31 +311,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">DisInforMeter — D5.3 Supplement</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./07-overview.html"> 
-<span class="menu-text">How to read this</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./07i-reproducibility.html"> 
-<span class="menu-text">Reproducibility</span></a>
-  </li>  
-</ul>
-</div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
+        <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/TheDataFlowCompany/disinformeter-policy-report-supplement" title="Source repository" class="quarto-navigation-tool px-1" aria-label="Source repository"><i class="bi bi-github"></i></a>
     <a href="https://osf.io/" title="OSF reuse package (forthcoming)" class="quarto-navigation-tool px-1" aria-label="OSF reuse package (forthcoming)"><i class="bi bi-database-fill"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -504,7 +505,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header><section id="how-to-read-the-relationships" class="level1"><h1>How to read the relationships</h1>
 <p>This page reports <strong>associations between receptivity domains and FIMI detection</strong>, the domains’ relationships to <strong>civic anchors</strong>, and the full <strong>nomological network</strong>. Two conventions:</p>
 <ul>
-<li>For predictor → detection paths, <strong>positive = better detection</strong> (the domain travels with recognising manipulation) and <strong>negative = a detection blind spot</strong>. These are <strong>cross-sectional associations, not causal effects</strong> <span class="citation" data-cites="ShadishCookCampbell2002">(<a href="#ref-ShadishCookCampbell2002" role="doc-biblioref"><strong>ShadishCookCampbell2002?</strong></a>)</span>.</li>
+<li>For predictor → detection paths, <strong>positive = better detection</strong> (the domain travels with recognising manipulation) and <strong>negative = a detection blind spot</strong>. These are <strong>cross-sectional associations, not causal effects</strong> <span class="citation" data-cites="ShadishCookCampbell2002">(<a href="#ref-ShadishCookCampbell2002" role="doc-biblioref">Shadish et al., 2002</a>)</span>.</li>
 <li>The headline relationships come from a multilevel Bayesian model (BRMS) of the S4 multinational data; cross-study paths come from the canonical higher-order composite SEM. The heavy estimation is documented on the academic site and in <a href="./07i-reproducibility.html">Reproducibility &amp; methods</a>; here we embed the print-ready results and the code that drew them.</li>
 </ul></section><section id="the-most-policy-relevant-result-domain-meaning-changes-by-source-and-country" class="level1"><h1>The most policy-relevant result: domain meaning changes by source and country</h1>
 <p>The key finding is not only that countries differ in overall detection — it is that <strong>the same receptivity domain can be associated with better detection in one source context and weaker detection in another</strong>.</p>
@@ -2780,7 +2781,7 @@ Figure&nbsp;7: OLS country-mean sanity check by FIMI variant.
 </div>
 </div>
 </section><section id="civic-anchors" class="level1"><h1>Civic anchors</h1>
-<p>Do the DisInforMeter domains connect to the wider civic conditions that make FIMI resilience stronger or weaker? <strong>Betrayal / Abandonment</strong> is the clearest institutional-trust construct: it tracks lower institutional trust, external political efficacy, EU support, social trust, and life satisfaction, and higher perceived foreign-actor salience. <strong>Threat</strong> also tracks lower institutional trust and EU support, while <strong>Fear / Pragmatism</strong> is tied to perceived misinformation impact and responsibility for prevention <span class="citation" data-cites="OECD2017Trust ESS2024Round11 NiemiCraigMattei1991 AkkermanMuddeZaslove2014">(<a href="#ref-OECD2017Trust" role="doc-biblioref"><strong>OECD2017Trust?</strong></a>; <a href="#ref-ESS2024Round11" role="doc-biblioref"><strong>ESS2024Round11?</strong></a>; <a href="#ref-NiemiCraigMattei1991" role="doc-biblioref"><strong>NiemiCraigMattei1991?</strong></a>; <a href="#ref-AkkermanMuddeZaslove2014" role="doc-biblioref"><strong>AkkermanMuddeZaslove2014?</strong></a>)</span>.</p>
+<p>Do the DisInforMeter domains connect to the wider civic conditions that make FIMI resilience stronger or weaker? <strong>Betrayal / Abandonment</strong> is the clearest institutional-trust construct: it tracks lower institutional trust, external political efficacy, EU support, social trust, and life satisfaction, and higher perceived foreign-actor salience. <strong>Threat</strong> also tracks lower institutional trust and EU support, while <strong>Fear / Pragmatism</strong> is tied to perceived misinformation impact and responsibility for prevention <span class="citation" data-cites="OECD2017Trust ESS2024Round11 NiemiCraigMattei1991 AkkermanMuddeZaslove2014">(<a href="#ref-AkkermanMuddeZaslove2014" role="doc-biblioref">Akkerman et al., 2014</a>; <a href="#ref-ESS2024Round11" role="doc-biblioref">ESS, 2024</a>; <a href="#ref-NiemiCraigMattei1991" role="doc-biblioref">Niemi et al., 1991</a>; <a href="#ref-OECD2017Trust" role="doc-biblioref">OECD, 2017</a>)</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-f20" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -5026,7 +5027,7 @@ Table&nbsp;2
 </figure>
 </div>
 </section><section id="external-validation-study-5" class="level1"><h1>External validation (Study 5)</h1>
-<p>Study 5 correlated every DisInforMeter construct against a battery of established scales. Three patterns stand out, and together they place the domains cleanly in the wider nomological network <span class="citation" data-cites="CampbellFiske1959 BruderEtAl2013 StephanYbarraMorrison2009">(<a href="#ref-CampbellFiske1959" role="doc-biblioref"><strong>CampbellFiske1959?</strong></a>; <a href="#ref-BruderEtAl2013" role="doc-biblioref"><strong>BruderEtAl2013?</strong></a>; <a href="#ref-StephanYbarraMorrison2009" role="doc-biblioref"><strong>StephanYbarraMorrison2009?</strong></a>)</span>:</p>
+<p>Study 5 correlated every DisInforMeter construct against a battery of established scales. Three patterns stand out, and together they place the domains cleanly in the wider nomological network <span class="citation" data-cites="CampbellFiske1959 BruderEtAl2013 StephanYbarraMorrison2009">(<a href="#ref-BruderEtAl2013" role="doc-biblioref">Bruder et al., 2013</a>; <a href="#ref-CampbellFiske1959" role="doc-biblioref">Campbell &amp; Fiske, 1959</a>; <a href="#ref-StephanYbarraMorrison2009" role="doc-biblioref">Stephan et al., 2009</a>)</span>:</p>
 <ol type="1">
 <li>
 <strong>Convergence is exactly where theory predicts.</strong> Opposition to LGBT+ rights tracks the matching intergroup-threat scale almost one-to-one ((r = .90)); anti-migration tracks immigrant intergroup threat ((r = .75)); foreign-power admiration tracks warmth toward Russia and China ((r )–(.7)), and with the <em>correct</em> target (Russia items ↔︎ Russia thermometer, China items ↔︎ China thermometer).</li>
@@ -7765,7 +7766,33 @@ Figure&nbsp;14: Full network backbone: global |r| ≥ .35 plus each node’s two
 </div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-AkkermanMuddeZaslove2014" class="csl-entry" role="listitem">
+Akkerman, A., Mudde, C., &amp; Zaslove, A. (2014). How populist are the people? Measuring populist attitudes in voters. <em>Comparative Political Studies</em>, <em>47</em>(9), 1324–1353. <a href="https://doi.org/10.1177/0010414013512600">https://doi.org/10.1177/0010414013512600</a>
+</div>
+<div id="ref-BruderEtAl2013" class="csl-entry" role="listitem">
+Bruder, M., Haffke, P., Neave, N., Nouripanah, N., &amp; Imhoff, R. (2013). Measuring individual differences in generic beliefs in conspiracy theories across cultures: The conspiracy mentality questionnaire. <em>Frontiers in Psychology</em>, <em>4</em>, 225. <a href="https://doi.org/10.3389/fpsyg.2013.00225">https://doi.org/10.3389/fpsyg.2013.00225</a>
+</div>
+<div id="ref-CampbellFiske1959" class="csl-entry" role="listitem">
+Campbell, D. T., &amp; Fiske, D. W. (1959). Convergent and discriminant validation by the multitrait-multimethod matrix. <em>Psychological Bulletin</em>, <em>56</em>(2), 81–105. <a href="https://doi.org/10.1037/h0046016">https://doi.org/10.1037/h0046016</a>
+</div>
+<div id="ref-ESS2024Round11" class="csl-entry" role="listitem">
+ESS. (2024). <em>ESS round 11 source questionnaire</em>. European Social Survey ERIC. <a href="https://www.europeansocialsurvey.org/news/article/round-11-questionnaire-and-provisional-release-dates">https://www.europeansocialsurvey.org/news/article/round-11-questionnaire-and-provisional-release-dates</a>
+</div>
+<div id="ref-NiemiCraigMattei1991" class="csl-entry" role="listitem">
+Niemi, R. G., Craig, S. C., &amp; Mattei, F. (1991). Measuring internal political efficacy in the 1988 national election study. <em>American Political Science Review</em>, <em>85</em>(4), 1407–1413. <a href="https://doi.org/10.2307/1963953">https://doi.org/10.2307/1963953</a>
+</div>
+<div id="ref-OECD2017Trust" class="csl-entry" role="listitem">
+OECD. (2017). <em>OECD guidelines on measuring trust</em>. OECD Publishing. <a href="https://doi.org/10.1787/9789264278219-en">https://doi.org/10.1787/9789264278219-en</a>
+</div>
+<div id="ref-ShadishCookCampbell2002" class="csl-entry" role="listitem">
+Shadish, W. R., Cook, T. D., &amp; Campbell, D. T. (2002). <em>Experimental and quasi-experimental designs for generalized causal inference</em>. Houghton Mifflin.
+</div>
+<div id="ref-StephanYbarraMorrison2009" class="csl-entry" role="listitem">
+Stephan, W. G., Ybarra, O., &amp; Morrison, K. R. (2009). Intergroup threat theory. In T. D. Nelson (Ed.), <em>Handbook of prejudice, stereotyping, and discrimination</em> (pp. 43–59). Psychology Press.
+</div>
+</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {

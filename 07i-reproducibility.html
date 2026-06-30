@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -286,31 +306,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">DisInforMeter — D5.3 Supplement</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-<li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./07-overview.html"> 
-<span class="menu-text">How to read this</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./07i-reproducibility.html"> 
-<span class="menu-text">Reproducibility</span></a>
-  </li>  
-</ul>
-</div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
+        <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/TheDataFlowCompany/disinformeter-policy-report-supplement" title="Source repository" class="quarto-navigation-tool px-1" aria-label="Source repository"><i class="bi bi-github"></i></a>
     <a href="https://osf.io/" title="OSF reuse package (forthcoming)" class="quarto-navigation-tool px-1" aria-label="OSF reuse package (forthcoming)"><i class="bi bi-database-fill"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
+          <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -730,7 +731,7 @@ Table&nbsp;2: Current limitations (mirrors the report's Limitations section).
 </figure>
 </div>
 </div>
-<p><span class="citation" data-cites="ShadishCookCampbell2002 CheungRensvold2002 Chen2007">(<a href="#ref-ShadishCookCampbell2002" role="doc-biblioref"><strong>ShadishCookCampbell2002?</strong></a>; <a href="#ref-CheungRensvold2002" role="doc-biblioref"><strong>CheungRensvold2002?</strong></a>; <a href="#ref-Chen2007" role="doc-biblioref"><strong>Chen2007?</strong></a>)</span></p>
+<p><span class="citation" data-cites="ShadishCookCampbell2002 CheungRensvold2002 Chen2007">(<a href="#ref-Chen2007" role="doc-biblioref">Chen, 2007</a>; <a href="#ref-CheungRensvold2002" role="doc-biblioref">Cheung &amp; Rensvold, 2002</a>; <a href="#ref-ShadishCookCampbell2002" role="doc-biblioref">Shadish et al., 2002</a>)</span></p>
 </section><section id="next-measurement-priorities" class="level1"><h1>Next measurement priorities</h1>
 <p>The next phase should prioritise <strong>longitudinal</strong> measurement, <strong>expanded country coverage</strong>, <strong>refreshed source-specific FIMI item banks</strong>, and integration with <strong>DSA Article-40</strong> research workflows. Methodologically: stabilise scalar comparability, evaluate weighting and sampling adjustments, refresh translations, and test whether domain changes predict later changes in FIMI detection.</p>
 </section><section id="minimum-caveat-language-for-reuse" class="level1"><h1>Minimum caveat language for reuse</h1>
@@ -762,7 +763,7 @@ Important
 <li>
 <strong>Aggregate data.</strong> Every country-level aggregate is downloadable as CSV from <a href="./07h-annex-tables.html">Annex tables &amp; downloads</a>.</li>
 <li>
-<strong>Participant-level data.</strong> Released where consent, anonymisation, and data-protection conditions permit, under an open reuse licence, as a DOI-stamped archive <span class="citation" data-cites="WilkinsonEtAl2016">(<a href="#ref-WilkinsonEtAl2016" role="doc-biblioref"><strong>WilkinsonEtAl2016?</strong></a>)</span>.</li>
+<strong>Participant-level data.</strong> Released where consent, anonymisation, and data-protection conditions permit, under an open reuse licence, as a DOI-stamped archive <span class="citation" data-cites="WilkinsonEtAl2016">(<a href="#ref-WilkinsonEtAl2016" role="doc-biblioref">Wilkinson et al., 2016</a>)</span>.</li>
 <li>
 <strong>Ethics &amp; purpose.</strong> The DisInforMeter is a population-monitoring research instrument. It is not for individual risk-profiling, content moderation, or enforcement. See the <a href="./index.html#boundary-of-interpretation">boundary of interpretation</a>.</li>
 </ul>
@@ -771,9 +772,23 @@ Important
 
 
 
+
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>Funded by the European Union (Grant Agreement No.&nbsp;101132671). Views and opinions expressed are those of the authors only and do not necessarily reflect those of the European Union. Neither the European Union nor the granting authority can be held responsible for them.</p>
-</div></div></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</div></div></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
+<div id="ref-Chen2007" class="csl-entry" role="listitem">
+Chen, F. F. (2007). Sensitivity of goodness of fit indexes to lack of measurement invariance. <em>Structural Equation Modeling: A Multidisciplinary Journal</em>, <em>14</em>(3), 464–504. <a href="https://doi.org/10.1080/10705510701301834">https://doi.org/10.1080/10705510701301834</a>
+</div>
+<div id="ref-CheungRensvold2002" class="csl-entry" role="listitem">
+Cheung, G. W., &amp; Rensvold, R. B. (2002). Evaluating goodness-of-fit indexes for testing measurement invariance. <em>Structural Equation Modeling: A Multidisciplinary Journal</em>, <em>9</em>(2), 233–255. <a href="https://doi.org/10.1207/S15328007SEM0902_5">https://doi.org/10.1207/S15328007SEM0902_5</a>
+</div>
+<div id="ref-ShadishCookCampbell2002" class="csl-entry" role="listitem">
+Shadish, W. R., Cook, T. D., &amp; Campbell, D. T. (2002). <em>Experimental and quasi-experimental designs for generalized causal inference</em>. Houghton Mifflin.
+</div>
+<div id="ref-WilkinsonEtAl2016" class="csl-entry" role="listitem">
+Wilkinson, M. D., Dumontier, M., Aalbersberg, Ij. J., Appleton, G., Axton, M., Baak, A., Blomberg, N., Boiten, J.-W., Silva Santos, L. B. da, Bourne, P. E., Bouwman, J., Brookes, A. J., Clark, T., Crosas, M., Dillo, I., Dumon, O., Edmunds, S., Evelo, C. T., Finkers, R., &amp; Mons, B. (2016). The FAIR guiding principles for scientific data management and stewardship. <em>Scientific Data</em>, <em>3</em>, 160018. <a href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>
+</div>
+</div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
